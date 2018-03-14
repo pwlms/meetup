@@ -1,11 +1,14 @@
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
-const morgsn = require('morgan');
+const morgan = require('morgan');
 const app = express();
+const router = require('./router');
 
 // App Setup
-
+app.use(morgan('combined'));
+app.use(bodyParser.json({type: '*/*'}));
+router(app);
 
 
 // Server Setup
